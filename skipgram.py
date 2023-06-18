@@ -57,26 +57,13 @@ def word_sense_disambiguation(word):
     return similar_words
 
 # Calculate accuracy
-# correct_predictions = 0
-# total_instances = len(test_sentences)
-
-# for instance in test_sentences:
-#     predicted_label = word_sense_disambiguation(instance['target_word'])[0][0]
-#     if predicted_label == instance['label']:
-#         correct_predictions += 1
-
-# accuracy = (correct_predictions / total_instances) * 100
-# print(f"Accuracy: {accuracy}%")
-
-
-# Calculate accuracy
 correct_predictions = 0
 total_instances = len(test_dataset)
 
 for instance in test_dataset.itertuples():
     sentence = instance.Sentence
     target_word = instance.Polysemy_Word
-    label = instance.Polysemy_Word  # Replace 'label' with the actual column name in your dataset
+    label = instance.Polysemy_Word 
 
     # Skip instances where the target word is not in the vocabulary
     if target_word not in word_vectors:
